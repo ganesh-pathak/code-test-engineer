@@ -1,7 +1,8 @@
-FROM maven:3.5-jdk-8-alpine as build
-WORKDIR /code-test-engineer
-COPY --from=clone /code-test-engineer /code-test-engineer
-RUN mvn clean install
+FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
+COPY pom.xml /tmp/
+COPY src /tmp/src/
+WORKDIR /tmp/
+RUN mvn package
 
 FROM openjdk:8
 ADD target/code-test-engineer.jar code-test-engineer.jar
