@@ -8,4 +8,4 @@ FROM openjdk:8
 WORKDIR /tmp
 COPY --from=build /tmp/target/code-test-engineer-1.0.jar /tmp
 EXPOSE 8085
-ENTRYPOINT ["java", "-jar", "code-test-engineer-1.0"]
+ENTRYPOINT ["java", "-jar", "code-test-engineer-1.0.jar"]
