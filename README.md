@@ -1,19 +1,19 @@
 # code-test-engineer
 Loan Summary API's
 
-# Build the application using below maven command mvn clean install
+Build the application using below maven command mvn clean install
 
-# Command to run the application from command prompt: java -jar target/code-test-engineer.jar
+Command to run the application from command prompt: java -jar target/code-test-engineer.jar
 
-# Test this application by calling following links in browser or Postman. http://localhost:8080/loanSummary?amount=50000&apr=19 http://localhost:8080/repaymentSchedule?amount=50000&apr=19
+Test this application by calling following links in browser or Postman. http://localhost:8080/loanSummary?amount=50000&apr=19 http://localhost:8080/repaymentSchedule?amount=50000&apr=19
 
-# Alternately you can also tests the functionality by running below test cases.
+Alternately you can also tests the functionality by running below test cases.
 
 Integration tests: LoanControllerIntegrationTest.shouldReceiveLoanSummaryStatusBadRequestWhenInvalidLoanAmount LoanControllerIntegrationTest.shouldReceiveRepaymentScheduleStatusOKWhenZeroInterestAmount LoanControllerIntegrationTest.shouldReceiveLoanSummaryWithStatusOKWhenValidLoanAmountAndInterestAmount LoanControllerIntegrationTest.shouldReceiveRepaymentScheduleWithStatusOKWhenValidLoanAmountAndInterestAmount LoanControllerIntegrationTest.shouldReceiveRepaymentScheduleStatusBadRequestWhenInvalidLoanAmount LoanControllerIntegrationTest.shouldReceiveRepaymentScheduleStatusBadRequestWhenInvalidInterestAmount LoanControllerIntegrationTest.shouldReceiveLoanSummaryStatusBadRequestWhenInvalidInterestAmount
 
 Unit tests: LoanControllerTest.shouldDelegateToLoanServiceToCalculateLoanSummary LoanControllerTest.shouldDelegateToRepaymentServiceToCalculateRepaymentSchedule LoanServiceTest.shouldThrowExceptionWhenZeroLoanAmount LoanServiceTest.shouldCalculateLoanSummaryForZeroPercentInterest LoanServiceTest.shouldThrowExceptionWhenNegativeLoanAmount LoanServiceTest.shouldCalculateLoanSummaryFor50000LoanAmountWith19PercentInterest LoanServiceTest.shouldThrowExceptionWhenNegativeInterest RepaymentServiceTest.shouldDelegateToLoanServiceWhenCalculateRepaymentSchedule RepaymentServiceTest.shouldCalculateRepaymentScheduleFor50000LoanAmountAnd19PercentInterest RepaymentServiceTest.shouldCalculateRepaymentScheduleForZeroPercentInterest
 
-# Behavioral tests:
+Behavioral tests:
 
 LoanSummary.feature
 
