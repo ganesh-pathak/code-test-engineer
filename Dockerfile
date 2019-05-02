@@ -1,5 +1,6 @@
-FROM maven:3.5-jdk-8-alpine
-WORKDIR /
+FROM maven:3.5-jdk-8-alpine as build
+WORKDIR /code-test-engineer
+COPY --from=clone /code-test-engineer /code-test-engineer
 RUN mvn clean install
 
 FROM openjdk:8
