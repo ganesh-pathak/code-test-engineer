@@ -1,11 +1,11 @@
-FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
+FROM maven:3.5.2-jdk-8-alpine AS build
 COPY pom.xml /tmp/
 COPY src /tmp/src/
-WORKDIR /tmp/
+WORKDIR /tmp
 RUN mvn package
 
 FROM openjdk:8
-WORKDIR /tmp/
-ADD target/code-test-engineer.jar code-test-engineer.jar
+WORKDIR /tmp
+COPY --from=build /tmp/target/code-test-engineer.jar /tmp
 EXPOSE 8085
-ENTRYPOINT ["java", "-jar", "code-test-engineer.jar"]
+CMD ["java -jar code-test-engineer.jar"]
