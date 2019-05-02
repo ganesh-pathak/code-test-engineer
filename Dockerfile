@@ -1,4 +1,5 @@
 FROM maven:3.5-jdk-8-alpine
+WORKDIR /code-test-engineer
 RUN mvn clean install
 
 FROM openjdk:8
