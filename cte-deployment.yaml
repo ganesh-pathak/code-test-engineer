@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: code-test-engineer
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: code-test-engineer
+    spec:
+      containers:
+        - name: code-test-engineer
+          image: gcr.io/microservices-test-240208/code-test-engineer
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: code-test-engineer-service
+  labels:
+    name: code-test-engineer-service
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: code-test-engineer
+  type: LoadBalancer
